@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="128x128" href="./assets/imagens/favicon.png">
+    <title>Calculaê</title> 
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <main class="app-container">
         <section id="professor-area">
             <figure id="professor-sprite" class="pose-inicial"></figure>
-            <article class="balao-dialogo">
-                <p id="fala-professor">Olá! Sou o ** **. Vamos aplicar a matemática hoje? Escolha um desafio:</p>
+            <article class="balao-dialogo" id="balao-fala-professor">
+                <p id="fala-professor">Olá! Sou o Professor Girafales. Vamos aplicar a matemática hoje?</p>
             </article>
         </section>
 
         <section id="interacao-area">
-            <nav id="menu-opcoes">
+            <nav id="menu-opcoes" class="menu-opcoes-style">
                 <button onclick="mudarCena('booleana')">Álgebra Booleana</button>
-                <button onclick="mudarCena('calculo')">Resolver Expressão</button>
+                <button onclick="mudarCena('teoriaConjunto')">Teoria de Conjuntos</button>
+                <button onclick="mudarCena('funcoesMatematicas')">Funções matemáticas</button>
+                <button onclick="mudarCena('calculo')">Resolver Expressão</button>  
             </nav>
 
             <form id="form-calculo" class="escondido">
@@ -29,6 +32,6 @@
             </form>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script type="module" src="./assets/js_pages/main.js"></script>
 </body>
 </html>

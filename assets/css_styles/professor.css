@@ -1,0 +1,85 @@
+/* Estilização do sprite do professor e suas diferentes pose/animação */
+
+/*Animação do professor*/
+#professor-sprite{
+    width: 200px;
+    height: 300px;
+    margin: 0 auto;
+     /*renderização estilo pixel*/
+     image-rendering: pixelated;
+     /*configurações da imagem de fundo*/
+     background-size: auto 100%;
+     background-repeat: no-repeat;
+     background-position: center;
+     /*animação de transição suave para as outras mudanças*/
+    transition: all 0.5s ease-out;
+}
+
+/*Definição da imagem para cada classe adicionada via javascript quando mudar de página*/
+.pose-inicial{
+    background-image: url(./../imagens/professor-poses/pose-inicial.png);
+    /*Efeito de "mover para o lado" na passagem da pagina*/
+    transform: translateX(-50px) scale(0.95);
+    animation: entrar 1s ease-out;
+}
+
+.pose-neutra{
+    background-image: url(./../imagens/professor-poses/pose-neutra.png);
+    /*Efeito de "mover para o lado" na passagem da pagina*/
+    transform: translateX(-50px) scale(0.95);
+}
+
+.pose-explicando{
+    background-image: url(./../imagens/professor-poses/pose-explicando.png);
+    /*Efeito de "mudar para o lado" na passagem de pagina*/
+    transform: translateX(-50px) scale(0.95);
+}
+
+.pose-calculando {
+    background-image: url(./../imagens/professor-poses/pose-calculo.png);
+    transform: scale(0.95); /* Leve zoom de foco */
+}
+
+.pose-sucesso {
+    background-image: url(./../imagens/professor-poses/pose-sucesso.png);
+    animation: pular 0.5s ease infinite alternate; /* Animação de pulo! */
+}
+
+#professor-sprite.pose-sucesso {
+    margin-top: 50px;
+}
+
+.pose-triste{
+    background-image: url(./../imagens/professor-poses/pose-triste.png);
+    transform: scale(0.95); /*Leve zoom*/
+}
+
+.pose-neutra{
+    background-image: url(./../imagens/professor-poses/pose-neutra.png);
+    transform: scale(0.95); /*Leve zoom*/
+}
+
+/*Animação ao entrar na página*/
+@keyframes entrar{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*animação de pular*/
+@keyframes pular{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-60px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}

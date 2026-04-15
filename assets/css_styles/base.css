@@ -1,0 +1,25 @@
+/* Aqui ficam as definições de estilo da página inteira do projeto */
+
+/*variáveis:*/
+:root{
+    --primary: #4a90e2;
+    --accent: #ff7e5f;
+    --bg-color: #f8f9fa;
+    --text-dark: #2d3436;
+}
+
+/*Configurações gerais*/
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(./../imagens/background-img.webp);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

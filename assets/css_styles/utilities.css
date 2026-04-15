@@ -1,0 +1,6 @@
+/* Classes que forçam um componente a ser exibido */
+
+/*Esconder/Mostrar elementos*/
+.escondido{
+    display: none !important;
+}

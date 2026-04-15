@@ -1,0 +1,85 @@
+/* Componentes Gerais do projeto*/
+
+.menu-opcoes-style{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*Estiliza os inputs dinamicos*/
+.inputs-dinamicos-style{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputs-dinamicos-style .coluna-opcoes{
+    background-color: lightgray;
+    margin-top: 5px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    white-space: nowrap;
+
+    padding: 10px 20px;
+    border-radius: 7px;
+}
+
+.coluna-opcoes input[type="radio"]{
+    margin-right: -5px;
+}
+
+/*Estilização do texto*/
+.estilizacao-texto{
+    color: var(--text-dark);
+    padding: 0px 10px;
+}
+
+/*estilização dos botoes*/
+button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.2s;
+    margin: 5px;
+}
+
+button:hover{ filter: brightness(1.3)}
+
+button.btn-voltar{
+    width: 150px;
+}
+
+button.btn-tentar-novamente-style{
+    width: 200px;
+    height: auto;
+    background-color: #ff7e5f;
+}
+
+button.btn-js{
+    width: 200px;
+    height: auto;
+}
+
+/*Edita os Inputs para inserir valores A e B nos exercicios de álgebra booleana*/
+#valA, #valB{
+    width: 50px;
+    height: 30px;
+    padding: 2px 0;
+    font-size: 14px;
+    border: 2px solid var(--text-dark);
+    border-radius: 5px;
+    text-align: center;
+}
+
+/*Edita o output (valores de saida)*/
+#resultado-matematico{
+    font-size: 15px;
+    font-weight: 600;
+    color: orangered;
+}
+

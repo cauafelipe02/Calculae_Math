@@ -1,0 +1,36 @@
+/* Containers gerais e layout */
+
+.app-container{
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    gap: 0px;
+    margin: 20px 0px 20px 0px;
+}
+
+.balao-dialogo{
+    background: lightgray;
+    padding: 0.5rem 1.5rem;
+
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+#professor-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#interacao-area{
+    margin: 0;
+}
+
+/*Estiliza todo o forms*/
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0;
+}
