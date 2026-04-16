@@ -1,14 +1,23 @@
 // Guarda as diferentes cenas do site, cada função é responsável por configurar a cena de um conteúdo específico
 import {UI} from './UI.js';
-import {prepararCena, voltarCalculo} from './engine.js';
+import {prepararCena} from './engine.js';
+import { calcularSoma } from './formulas.js';
 
 export function fazerSoma() {
     prepararCena('pose-inicial', "Beleza, vamos somar!!");
 
-    UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja somar:</p>`;
-    UI.inputs.innerHTML = ``;
+    UI.resumo.innerHTML = `<p style="font-weight: 600;">Vamos realizar algumas somas:</p>`;
+    UI.inputs.innerHTML = `
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <label style="font-weight: 500; ">Insira os números:</label>
+            <input type="number" id="valA" placeholder="a">
+            <input type="number" id="valB" placeholder="b">
+            <button type="button" class="btn-js" id="btn-somar">Somar</button>
+        </div>
+    `;
 
-    voltarCalculo();
+    document.getElementById('btn-somar')
+        .addEventListener('click', calcularSoma);
 }
 
 export function fazerSubtracao() {
@@ -16,8 +25,6 @@ export function fazerSubtracao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja subtrair:</p>`;
     UI.inputs.innerHTML = ``;
-
-    voltarCalculo();
 }
 
 export function fazerMultiplicacao() {
@@ -25,8 +32,6 @@ export function fazerMultiplicacao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja multiplicar:</p>`;
     UI.inputs.innerHTML = ``;
-
-    voltarCalculo();
 }
 
 export function fazerDivisao() {
@@ -34,8 +39,6 @@ export function fazerDivisao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja dividir:</p>`;
     UI.inputs.innerHTML = ``;
-
-    voltarCalculo();
 }
 
 export function fazerExpressao() {
@@ -43,6 +46,4 @@ export function fazerExpressao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números da expressão:</p>`;
     UI.inputs.innerHTML = ``;
-
-    voltarCalculo();
 }

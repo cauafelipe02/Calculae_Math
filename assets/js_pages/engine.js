@@ -1,8 +1,17 @@
 // Funções de "Máquinas repetitivas", faxina e transição de cenas
-//importa as variaveis gerais do UI para manipulação do DOM
 import { UI } from './UI.js';
 
-// Função para limpar as cenas
+// Função para limpeza
+
+export function prepararCena(pose, textoFala) {
+    limparPalco(); // Primeiro limpa tudo...
+    
+    // ...depois configura o Professor
+    UI.sprite.className = '';
+    UI.sprite.classList.add(pose);
+    UI.fala.innerText = textoFala;
+}
+
 export function limparPalco() {
     UI.menu.classList.add('escondido');
     UI.form.classList.remove('escondido');
@@ -13,21 +22,40 @@ export function limparPalco() {
     UI.resultado.innerText = "";
 
     // Limpa o botão de voltar para tela de seleção de operação (calculo) e reseta ele para a função padrão
-    UI.btnVoltarPagina.onclick = resetar;
+    UI.btnVoltarPagina.addEventListener('click', resetar);
     UI.btnVoltarPagina.textContent = "Voltar ao Inicio";
 }
 
-// 2. A função de transição de cenas (que usa a faxina)
-export function prepararCena(pose, textoFala) {
-    limparPalco(); // Primeiro limpa tudo...
-    
-    // ...depois configura o Professor
-    UI.sprite.className = '';
-    UI.sprite.classList.add(pose);
-    UI.fala.innerText = textoFala;
+export function resetar() {
+    location.reload(); 
 }
 
-// Função para o botão de tentar novamente
+export function validarInputsEBotao(...valores) {
+    // Remove o botão de tentar novamente caso ele exista para evitar múltiplos botões
+    document.getElementById("btn-tentar-novamente")?.remove();
+
+    if(valores.some(valor => valor.trim() === "")) {
+            UI.resultado.innerText = "Por favor, insira um valor válido.";
+            mostrarNeutro();
+            criarBotaoTentarNovamente();
+            return true; // Retorna true se a validação falhar
+        }
+    return false; // Retorna false se a validação passar
+}
+
+// Funções para criar o botão de tentar novamente e para limpar os inputs
+
+export function criarBotaoTentarNovamente() {
+    let botao = document.createElement("button");
+    botao.id = "btn-tentar-novamente";
+    botao.classList.add("btn-tentar-novamente-style");
+    botao.textContent = "Tentar novamente";
+    
+    // Como estamos em módulos, usamos a referência direta da função importada
+    botao.addEventListener('click', tentarNovamente);
+    UI.inputs.appendChild(botao);
+}
+
 export function tentarNovamente() {
     document.getElementById('valA').value = "";
     document.getElementById('valB').value = "";
@@ -60,11 +88,6 @@ export function mostrarNeutro() {
     UI.fala.innerText = "Hmm, parece que algo não está certo. Tente novamente!";
 }
 
-// Função de Reset
-export function resetar() {
-    location.reload(); 
-}
-
 // função de escolher operação
 
 // ela armazena o valor capturado no input que está selecionado e chama 
@@ -77,10 +100,4 @@ export function escolherOperacao() {
     } else {
         alert("Por favor, selecione uma operação para continuar.");
     }
-}
-
-// Função do botão de Voltar para tela de seleção de operação ( mudarCena('calculo') )
-export function voltarCalculo() {
-    UI.btnVoltarPagina.textContent = "Voltar";
-    UI.btnVoltarPagina.onclick = () => mudarCena('calculo');
 }

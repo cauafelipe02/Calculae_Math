@@ -11,8 +11,6 @@ import { fazerSoma,
     fazerDivisao,
     fazerExpressao
 } from './cenas_operacoes.js';
-import {resetar, tentarNovamente, escolherOperacao} from './engine.js';
-import { calcularAND } from './formulas.js';
 
 // Arrow function que o HTML vai chamar
 window.mudarCena = (tipo) => {
@@ -31,12 +29,3 @@ window.mudarCena = (tipo) => {
         cenas[tipo]();
     }
 }
-
-// Por causa do type=modulo precisamos expor as funções globais (que mexem diretamente com o DOM) para que o HTML 
-// execute elas, como o resetar e tentarNovamente, que são usadas em várias cenas diferentes, e a função de 
-// escolher operação, que é usada na cena de cálculos
-
-window.resetar = resetar;
-window.tentarNovamente = tentarNovamente;
-window.calcularAND = calcularAND;
-window.escolherOperacao = escolherOperacao;

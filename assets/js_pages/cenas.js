@@ -1,6 +1,7 @@
 // Guarda as diferentes cenas do site, cada função é responsável por configurar a cena de um conteúdo específico
 import {UI} from './UI.js';
-import {prepararCena} from './engine.js';
+import {escolherOperacao, prepararCena} from './engine.js';
+import { calcularAND } from './formulas.js';
 
 export function mudarBooleana() {
     // 1. A função prepararCena já faz a faxina e troca a pose/fala por você!
@@ -31,9 +32,12 @@ export function mudarBooleana() {
         <label style="font-weight: 500; ">Teste a porta AND:</label>
             <input type="number" id="valA" placeholder="A" min="0" max="1">
             <input type="number" id="valB" placeholder="B" min="0" max="1">
-        <button type="button" class="btn-js" onclick="calcularAND()">Verificar Lógica</button>
+        <button type="button" class="btn-js" id="btn-calcularAND">Verificar Lógica</button>
     </div>
     `;
+
+    document.getElementById('btn-calcularAND')
+        .addEventListener('click', calcularAND);
 }
     
 export function mudarCalculo() {
@@ -54,8 +58,11 @@ export function mudarCalculo() {
             <input type="radio" id="expressao" name="operacao" value="expressao">
                 <label for="expressao">Expressão 2º Grau</label>
         </div>
-        <button type="button" onclick="escolherOperacao()" class="btn-js">Escolher</button>
+        <button type="button" id="btn-escolher-operacao" class="btn-js">Escolher</button>
     `;
+
+    document.getElementById('btn-escolher-operacao')
+        .addEventListener('click', (escolherOperacao));
 }
 
 export function mudarConjunto() {
