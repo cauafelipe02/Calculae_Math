@@ -23,6 +23,7 @@ export function limparPalco() {
 
     // limpa o botão antes de adicionar um novo evento (importante para evitar múltiplos eventos acumulados)
     UI.btnVoltarPagina.removeEventListener('click', resetar);
+    UI.btnVoltarPagina.removeEventListener('click', irParaCalculo);
 
     // adiciona ao botão de voltar o evento de clique que chama a função de resetar e configura seu texto
     UI.btnVoltarPagina.addEventListener('click', resetar);
@@ -35,8 +36,14 @@ export function resetar() {
 
 export function voltarCalculo() {
     UI.btnVoltarPagina.removeEventListener('click', resetar);
-    UI.btnVoltarPagina.addEventListener('click', () => window.mudarCena('calculo'));
+    UI.btnVoltarPagina.removeEventListener('click', irParaCalculo);
+
+    UI.btnVoltarPagina.addEventListener('click', irParaCalculo);
     UI.btnVoltarPagina.textContent = "Voltar";
+}
+
+function irParaCalculo() {
+    window.mudarCena('calculo');
 }
 
 export function validarInputsEBotao(...valores) {
