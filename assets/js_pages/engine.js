@@ -1,7 +1,7 @@
 // Funções de "Máquinas repetitivas", faxina e transição de cenas
 import { UI } from './UI.js';
 
-// Função para limpeza
+// Funções para limpeza e voltar páginas
 
 export function prepararCena(pose, textoFala) {
     limparPalco(); // Primeiro limpa tudo...
@@ -21,13 +21,22 @@ export function limparPalco() {
     UI.inputs.innerHTML = "";
     UI.resultado.innerText = "";
 
-    // Limpa o botão de voltar para tela de seleção de operação (calculo) e reseta ele para a função padrão
+    // limpa o botão antes de adicionar um novo evento (importante para evitar múltiplos eventos acumulados)
+    UI.btnVoltarPagina.removeEventListener('click', resetar);
+
+    // adiciona ao botão de voltar o evento de clique que chama a função de resetar e configura seu texto
     UI.btnVoltarPagina.addEventListener('click', resetar);
     UI.btnVoltarPagina.textContent = "Voltar ao Inicio";
 }
 
 export function resetar() {
     location.reload(); 
+}
+
+export function voltarCalculo() {
+    UI.btnVoltarPagina.removeEventListener('click', resetar);
+    UI.btnVoltarPagina.addEventListener('click', () => window.mudarCena('calculo'));
+    UI.btnVoltarPagina.textContent = "Voltar";
 }
 
 export function validarInputsEBotao(...valores) {

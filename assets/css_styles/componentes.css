@@ -67,7 +67,7 @@ button.btn-js{
 
 /*Edita os Inputs para inserir valores A e B nos exercicios de álgebra booleana*/
 #valA, #valB{
-    width: 50px;
+    width: 65px;
     height: 30px;
     padding: 2px 0;
     font-size: 14px;

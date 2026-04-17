@@ -36,7 +36,7 @@ export function calcularSoma() {
     const a = Number(aRaw);
     const b = Number(bRaw);
     let soma = a + b;
-    UI.resultado.innerText = `Resultado: ${soma}`;
+    UI.resultado.innerText = `Resultado: ${soma.toFixed(2)}`;
     mostrarSucesso();
 
     criarBotaoTentarNovamente();

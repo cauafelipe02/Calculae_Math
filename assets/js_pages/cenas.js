@@ -39,31 +39,6 @@ export function mudarBooleana() {
     document.getElementById('btn-calcularAND')
         .addEventListener('click', calcularAND);
 }
-    
-export function mudarCalculo() {
-    prepararCena('pose-calculando', "Vamos resolver algumas questões?");
-
-    UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe a seguir a operação que deseja realizar:</p>`;
-
-    UI.inputs.innerHTML = `
-        <div class="coluna-opcoes">
-            <input type="radio" id="soma" name="operacao" value="soma">
-                <label for="soma">Soma</label>
-            <input type="radio" id="subtracao" name="operacao" value="subtracao">
-                <label for="subtracao">Subtração</label>
-            <input type="radio" id="multiplicacao" name="operacao" value="multiplicacao">
-                <label for="multiplicacao">Multiplicação</label>
-            <input type="radio" id="divisao" name="operacao" value="divisao">
-                <label for="divisao">Divisão</label>
-            <input type="radio" id="expressao" name="operacao" value="expressao">
-                <label for="expressao">Expressão 2º Grau</label>
-        </div>
-        <button type="button" id="btn-escolher-operacao" class="btn-js">Escolher</button>
-    `;
-
-    document.getElementById('btn-escolher-operacao')
-        .addEventListener('click', (escolherOperacao));
-}
 
 export function mudarConjunto() {
     prepararCena('pose-explicando', "Vamos falar sobre teoria de conjuntos?");
@@ -105,4 +80,29 @@ export function mudarFuncoes() {
             
         </div>
     `;
+}
+
+export function mudarCalculo() {
+    prepararCena('pose-calculando', "Vamos resolver algumas questões?");
+
+    UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe a seguir a operação que deseja realizar:</p>`;
+
+    UI.inputs.innerHTML = `
+        <div class="coluna-opcoes">
+            <input type="radio" id="soma" name="operacao" value="soma">
+                <label for="soma">Soma</label>
+            <input type="radio" id="subtracao" name="operacao" value="subtracao">
+                <label for="subtracao">Subtração</label>
+            <input type="radio" id="multiplicacao" name="operacao" value="multiplicacao">
+                <label for="multiplicacao">Multiplicação</label>
+            <input type="radio" id="divisao" name="operacao" value="divisao">
+                <label for="divisao">Divisão</label>
+            <input type="radio" id="expressao" name="operacao" value="expressao">
+                <label for="expressao">Expressão 2º Grau</label>
+        </div>
+        <button type="button" id="btn-escolher-operacao" class="btn-js">Escolher</button>
+    `;
+
+    document.getElementById('btn-escolher-operacao')
+        .addEventListener('click', (escolherOperacao));
 }

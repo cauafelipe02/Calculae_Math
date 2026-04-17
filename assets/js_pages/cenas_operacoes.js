@@ -1,6 +1,6 @@
 // Guarda as diferentes cenas do site, cada função é responsável por configurar a cena de um conteúdo específico
 import {UI} from './UI.js';
-import {prepararCena} from './engine.js';
+import {prepararCena, voltarCalculo} from './engine.js';
 import { calcularSoma } from './formulas.js';
 
 export function fazerSoma() {
@@ -18,6 +18,8 @@ export function fazerSoma() {
 
     document.getElementById('btn-somar')
         .addEventListener('click', calcularSoma);
+
+    voltarCalculo();
 }
 
 export function fazerSubtracao() {
@@ -25,6 +27,8 @@ export function fazerSubtracao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja subtrair:</p>`;
     UI.inputs.innerHTML = ``;
+
+    voltarCalculo();
 }
 
 export function fazerMultiplicacao() {
@@ -32,6 +36,8 @@ export function fazerMultiplicacao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja multiplicar:</p>`;
     UI.inputs.innerHTML = ``;
+
+    voltarCalculo();
 }
 
 export function fazerDivisao() {
@@ -39,6 +45,8 @@ export function fazerDivisao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números que deseja dividir:</p>`;
     UI.inputs.innerHTML = ``;
+
+    voltarCalculo();
 }
 
 export function fazerExpressao() {
@@ -46,4 +54,6 @@ export function fazerExpressao() {
 
     UI.resumo.innerHTML = `<p style="font-weight: 600;">Informe os números da expressão:</p>`;
     UI.inputs.innerHTML = ``;
+
+    voltarCalculo();
 }
