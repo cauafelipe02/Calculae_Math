@@ -17,10 +17,10 @@ export function calcularAND() {
     const b = Number(bRaw);
 
     if (a === 1 && b === 1) {
-        UI.resultado.innerText = "Resultado: (1) Verdadeiro."
+        UI.resultado.innerHTML = '<p>Resultado: (1) Verdadeiro.</p>';
         mostrarSucesso(); // chama a função que mostra a imagem de sucesso
     } else {
-        UI.resultado.innerText = "Resultado: (0) Falso."
+        UI.resultado.innerHTML = '<p>Resultado: (0) Falso.</p>';
         mostrarFrustracao(); // chama a função que mostra a imagem de frustração
     }
     // adiciona botão no final do bloco de inputs
@@ -36,7 +36,7 @@ export function calcularSoma() {
     const a = Number(aRaw);
     const b = Number(bRaw);
     let soma = a + b;
-    UI.resultado.innerText = `Resultado: ${soma.toFixed(2)}`;
+    UI.resultado.innerHTML = `<p>Resultado: ${soma.toFixed(2)}</p>`;
     mostrarSucesso();
     criarBotaoTentarNovamente();
 }
@@ -50,7 +50,7 @@ export function calcularSubtracao() {
     const a = Number(aRaw);
     const b = Number(bRaw);
     let subtracao = a - b;
-    UI.resultado.innerText = `Resultado: ${subtracao.toFixed(2)}`;
+    UI.resultado.innerHTML = `<p>Resultado: ${subtracao.toFixed(2)}</p>`;
     mostrarSucesso();
     criarBotaoTentarNovamente();
 }
@@ -64,7 +64,7 @@ export function calcularMultiplicacao() {
     const a = Number(aRaw);
     const b = Number(bRaw);
     let multiplicacao = a * b;
-    UI.resultado.innerText = `Resultado: ${multiplicacao.toFixed(2)}`;
+    UI.resultado.innerHTML = `<p>Resultado: ${multiplicacao.toFixed(2)}</p>`;
     mostrarSucesso();
     criarBotaoTentarNovamente();
 }
@@ -78,7 +78,7 @@ export function calcularDivisao() {
     const a = Number(aRaw);
     const b = Number(bRaw);
     let divisao = a / b;
-    UI.resultado.innerText = `Resultado: ${divisao.toFixed(2)}`;
+    UI.resultado.innerHTML = `<p>Resultado: ${divisao.toFixed(2)}</p>`;
     mostrarSucesso();
     criarBotaoTentarNovamente();
 }
@@ -100,7 +100,7 @@ export function calcularExpressao() {
         let x2 = (-b - Math.sqrt(delta)) / (2*a);
         UI.resultado.innerHTML = `<p>Resultados:<br> Delta = ${delta.toFixed(2)} <br> x1 = ${x1.toFixed(2)} <br> x2 = ${x2.toFixed(2)}</p>`;
     } else {
-        UI.resultado.innerText = "Resultado: A expressão não possui raízes reais.";
+        UI.resultado.innerHTML = '<p>Resultado: A expressão não possui raízes reais.</p>';
     }
     mostrarSucesso();
     criarBotaoTentarNovamente();

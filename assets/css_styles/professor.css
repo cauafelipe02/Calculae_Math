@@ -46,7 +46,9 @@
 }
 
 #professor-sprite.pose-sucesso {
-    margin-top: 50px;
+    transform: translateY(50px); /* Eleva o professor para destacar a pose de sucesso */
+    position: relative; /*Garante que o sprite esteja acima de outros elementos */
+    z-index: 5; /*Aumenta o z-index para garantir que o sprite fique acima de outros elementos */
 }
 
 .pose-triste{

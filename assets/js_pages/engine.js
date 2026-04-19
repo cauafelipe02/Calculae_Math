@@ -21,6 +21,8 @@ export function limparPalco() {
     UI.inputs.innerHTML = "";
     UI.resultado.innerText = "";
 
+    UI.appContainer.style.flexWrap = "wrap"; // Garante que o layout se adapte a telas menores
+
     // limpa o botão antes de adicionar um novo evento (importante para evitar múltiplos eventos acumulados)
     UI.btnVoltarPagina.removeEventListener('click', resetar);
     UI.btnVoltarPagina.removeEventListener('click', irParaCalculo);
@@ -51,7 +53,7 @@ export function validarInputsEBotao(...valores) {
     document.getElementById("btn-tentar-novamente")?.remove();
 
     if(valores.some(valor => valor.trim() === "")) {
-            UI.resultado.innerText = "Por favor, insira um valor válido.";
+            UI.resultado.innerHTML = '<p>Por favor, insira um valor válido</p>';
             mostrarNeutro();
             criarBotaoTentarNovamente();
             return true; // Retorna true se a validação falhar
@@ -62,21 +64,29 @@ export function validarInputsEBotao(...valores) {
 // Funções para criar o botão de tentar novamente e para limpar os inputs
 
 export function criarBotaoTentarNovamente() {
+    // Evita criar duplicatas se o botão já existir
+    if (document.getElementById("btn-tentar-novamente")) return;
+
     let botao = document.createElement("button");
     botao.id = "btn-tentar-novamente";
+    botao.type = "button";
     botao.classList.add("btn-tentar-novamente-style");
     botao.textContent = "Tentar novamente";
-    
-    // Como estamos em módulos, usamos a referência direta da função importada
-    botao.addEventListener('click', tentarNovamente);
+
+    botao.onclick = () => tentarNovamente();
     UI.inputs.appendChild(botao);
 }
 
 export function tentarNovamente() {
-    document.getElementById('valA').value = "";
-    document.getElementById('valB').value = "";
-    document.getElementById('valC').value = "";
-    UI.resultado.innerText = "";
+    // 1. Limpar Inputs (com verificação de existência)
+    const inputs = ['valA', 'valB', 'valC'];
+    inputs.forEach(id => {
+        const campo = document.getElementById(id);
+        if (campo) campo.value = "";
+    });
+
+    // 2. Limpar Resultado e Resumo visual
+    if (UI.resultado) UI.resultado.innerText = "";
 
     UI.sprite.className = 'pose-inicial';
     UI.balaoFala.style.cssText = `
@@ -86,7 +96,11 @@ export function tentarNovamente() {
     `;
     UI.fala.innerHTML = `<p>Entender a lógica é o primeiro passo, vamos tentar novamente?</p>`;
 
-    document.getElementById("btn-tentar-novamente")?.remove();
+    // 4. Remover o botão (A forma mais segura de remover)
+    const b = document.getElementById("btn-tentar-novamente");
+    if (b) {
+        b.remove();
+    }
 }
 
 // Funções de mudar de imagem

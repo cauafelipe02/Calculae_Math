@@ -11,7 +11,7 @@ export function fazerSoma() {
     prepararCena('pose-inicial', "Beleza, vamos somar!!");
 
     UI.inputs.innerHTML = `
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="inputs-gerais-style">
             <label style="font-weight: 500; ">Insira os números:</label>
             <input type="number" id="valA" placeholder="a">
             <input type="number" id="valB" placeholder="b">
@@ -29,7 +29,7 @@ export function fazerSubtracao() {
     prepararCena('pose-inicial', "Beleza, vamos subtrair!!");
 
     UI.inputs.innerHTML = `
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="inputs-gerais-style">
             <label style="font-weight: 500; ">Insira os números:</label>
             <input type="number" id="valA" placeholder="a">
             <input type="number" id="valB" placeholder="b">
@@ -47,7 +47,7 @@ export function fazerMultiplicacao() {
     prepararCena('pose-inicial', "Beleza, vamos multiplicar!!");
 
     UI.inputs.innerHTML = `
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="inputs-gerais-style">
             <label style="font-weight: 500; ">Insira os números:</label>
             <input type="number" id="valA" placeholder="a">
             <input type="number" id="valB" placeholder="b">
@@ -65,7 +65,7 @@ export function fazerDivisao() {
     prepararCena('pose-inicial', "Beleza, vamos dividir!!");
 
     UI.inputs.innerHTML = `
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="inputs-gerais-style">
             <label style="font-weight: 500; ">Insira os números:</label>
             <input type="number" id="valA" placeholder="a">
             <input type="number" id="valB" placeholder="b">
@@ -83,7 +83,7 @@ export function fazerExpressao() {
     prepararCena('pose-inicial', "Beleza, vamos resolver uma expressão!");
 
     UI.inputs.innerHTML = `
-        <div style="display: flex; gap: 10px; align-items: center;">
+        <div class="inputs-gerais-style">
             <label style="font-weight: 500; ">Insira os números:</label>
             <input type="number" id="valA" placeholder="a">
             <input type="number" id="valB" placeholder="b">

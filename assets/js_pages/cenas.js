@@ -28,7 +28,7 @@ export function mudarBooleana() {
 
     // Insere a parte interativa "exercicios"
     UI.inputs.innerHTML = `
-    <div style="display: flex; gap: 10px; align-items: center;">
+    <div class="inputs-gerais-style">
         <label style="font-weight: 500; ">Teste a porta AND:</label>
             <input type="number" id="valA" placeholder="A" min="0" max="1">
             <input type="number" id="valB" placeholder="B" min="0" max="1">
@@ -89,12 +89,6 @@ export function mudarFuncoes() {
             Funções estatísticas permitem que sistemas identifiquem padrões, filtrem spans e tomem decisões preditivas baseadas em grandes conjuntos de dados históricos.</p>
         </article>
     `;
-
-    UI.inputs.innerHTML = `
-        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-            
-        </div>
-    `;
 }
 
 export function mudarCalculo() {
@@ -104,16 +98,11 @@ export function mudarCalculo() {
     UI.inputs.innerHTML = `
         <p style="font-weight: 600;">Informe a seguir a operação que deseja realizar:</p>
         <div class="coluna-opcoes">
-            <input type="radio" id="soma" name="operacao" value="soma">
-                <label for="soma">Soma</label>
-            <input type="radio" id="subtracao" name="operacao" value="subtracao">
-                <label for="subtracao">Subtração</label>
-            <input type="radio" id="multiplicacao" name="operacao" value="multiplicacao">
-                <label for="multiplicacao">Multiplicação</label>
-            <input type="radio" id="divisao" name="operacao" value="divisao">
-                <label for="divisao">Divisão</label>
-            <input type="radio" id="expressao" name="operacao" value="expressao">
-                <label for="expressao">Expressão 2º Grau</label>
+            <label class="opcao-operacao"><input type="radio" id="soma" name="operacao" value="soma">Soma</label>
+            <label class="opcao-operacao"><input type="radio" id="subtracao" name="operacao" value="subtracao">Subtração</label>
+            <label class="opcao-operacao"><input type="radio" id="multiplicacao" name="operacao" value="multiplicacao">Multiplicação</label>
+            <label class="opcao-operacao"><input type="radio" id="divisao" name="operacao" value="divisao">Divisão</label>
+            <label class="opcao-operacao"><input type="radio" id="expressao" name="operacao" value="expressao">Expressão 2º Grau</label>
         </div>
         <button type="button" id="btn-escolher-operacao" class="btn-js">Escolher</button>
     `;
