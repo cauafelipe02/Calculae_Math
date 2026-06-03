@@ -18,6 +18,7 @@
 body{
     background-image: url(./../imagens/background-img.webp);
     background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--text-dark);
     font-family: 'Segoe UI', system-ui, sans-serif;
